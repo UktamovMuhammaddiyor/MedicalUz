@@ -193,6 +193,8 @@ def getHandlerCQ(user, response, chat_id):
     elif data == 'name_exit_menu':
         sendMenu(user, response['message'], chat_id, '')
         deleteMessage(chat_id, response['message']['message_id'])
+        user.status = 'nothing'
+        user.save()
     elif data == 'name_exit':
         deleteMessage(chat_id, response['message']['message_id'])
     elif data[:11] == 'more_doctor':
